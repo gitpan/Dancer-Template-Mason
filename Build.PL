@@ -13,7 +13,8 @@ my %module_build_args = (
                        'script_files' => [],
                        'module_name' => 'Dancer::Template::Mason',
                        'requires' => {
-                                       'HTML::Mason' => '0'
+                                       'HTML::Mason' => '0',
+                                       'Dancer' => '0'
                                      },
                        'license' => 'perl'
                      );

@@ -13,5 +13,6 @@ meta-spec:
   version: 1.4
 name: Dancer-Template-Mason
 requires:
+  Dancer: 0
   HTML::Mason: 0
-version: 0.000_001
+version: 0.000_002
