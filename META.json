@@ -4,7 +4,7 @@
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
    "generated_by" : "Dist::Zilla version 1.100160",
-   "version" : "0.000_002",
+   "version" : "0.001",
    "name" : "Dancer-Template-Mason",
    "author" : [
       "Yanick Champoux"
