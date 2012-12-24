@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.64.
+signed via the Module::Signature module, version 0.68.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,17 +14,20 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 3d23b27c39e4067d3a0f3c4d88a7b5e325dab9b9 Build.PL
-SHA1 07349eff2835cf8ef1184d8c58297552c198515a Changes
+SHA1 b8fdb80cb7349d8bc967aa149c1cdfb279d4d6d4 AUTHOR_PLEDGE
+SHA1 d86e8a074f77a624402ce0159bdc4df9ac4fe21c Build.PL
+SHA1 e9fd4400eb105b3bae1f04e9a763e8d549c94804 Changes
 SHA1 855212a08c80ca380bef93d1821889107230f8df INSTALL
-SHA1 59da7efc4d54fec3810ae9f44a59eb3ee7139957 LICENSE
-SHA1 223d52103954e813c9c2c27bb9824c26924b5217 MANIFEST
-SHA1 83bedb96427654a91ba342e19415e4c6512f225d META.json
-SHA1 8f1773337c0ba31dfe13281b3452c087c1c18336 META.yml
-SHA1 4988fa7759a8454905c825885f4bc060700c3187 README
-SHA1 9b49f3cdb6f15f8ac14eaa3ce9313abdc0a2cb32 README.mkdn
-SHA1 f067e52296491e4988e0373535fffcb71966d4bf lib/Dancer/Template/Mason.pm
+SHA1 42a9b278ca94a31df654fec186efe74ba9565d7e LICENSE
+SHA1 1fd64b23fe79ac639ba4547779cac44ae118ebba MANIFEST
+SHA1 b9a3b48e01982810bd0f08b7ac3be2da4cccde9f META.json
+SHA1 e5ac7eeb2a6ca60aa422095ea83346851c346056 META.yml
+SHA1 65c0d541db2280ae97b8d328b95aa4e8fc8430d6 README
+SHA1 7c83c4c1746ed4cb99e626b28c6260c3b63bd546 README.mkdn
+SHA1 759f3122b77346d9aae1d68a06d46369e0afe299 lib/Dancer/Template/Mason.pm
+SHA1 3cbe905b92fbc69d59a06031d5ce6c837b352aa2 t/00-compile.t
 SHA1 981f8f6aa069e101b0661cd0ad10f650ead127d0 t/00-load.t
+SHA1 57645ef949941269d2a59b4c2cbe0080c682232d t/000-report-versions-tiny.t
 SHA1 e19d10e972676bd73e9515fed961e00bea55e0c9 t/01-basic.t
 SHA1 adbeaa54ad26cbe2f2b8c9de6b4383fc1abbe830 t/apps/Foo/Makefile.PL
 SHA1 48bc96d7f0f92280af20542294089a9eee7589cc t/apps/Foo/bin/app.pl
@@ -41,12 +44,15 @@ SHA1 6b8e8e4e625e8172c8b9636ce5ec9e219559f987 t/apps/Foo/public/images/perldance
 SHA1 bb05c1554e2e5aff4a8ae8b37ea0109f5960cdf3 t/apps/Foo/public/images/perldancer.jpg
 SHA1 65cbff4e9d95d47a6f31d96ab4ea361c1f538a7b t/apps/Foo/public/javascripts/jquery.js
 SHA1 b6721bb8d1ab661336bf4c95b10400df7465f49b t/apps/Foo/views/index.m
-SHA1 ada1da0eb0945037df8e9e84b6fd37f22e940c37 t/interp_config.t
+SHA1 a92355b9a5069c26892308d590148046cce084cd t/interp_config-d2.t
+SHA1 bd57ebf95ee95f107f2b9c33f76a935dd2bc9889 t/interp_config.t
 SHA1 5c882b9f7036692d77ea929e10aee9446f89316b t/views/index
+SHA1 b6721bb8d1ab661336bf4c95b10400df7465f49b t/views/index.m
+SHA1 ec3f84bfd7a9ce3246e7592f4134100c6b5ce02b xt/release/unused-vars.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.11 (GNU/Linux)
 
-iEYEARECAAYFAk4x/2kACgkQ34Hwf+GwC4xOQgCdEh8YRItCIqEeBk0PEuyVfgzL
-dlgAmwfuW8Ln1A2CwBi49g2LURfLCLEb
-=e2Gd
+iEYEARECAAYFAlDYykoACgkQ34Hwf+GwC4wk4wCguhAqHH/ldW1/yhicKt+e8d4j
+uFwAoPcfVnNeTwOpu5oKKcoyMnERnnMJ
+=i8pR
 -----END PGP SIGNATURE-----

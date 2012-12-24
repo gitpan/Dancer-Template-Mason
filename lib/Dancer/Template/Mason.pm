@@ -1,52 +1,85 @@
 package Dancer::Template::Mason;
 BEGIN {
-  $Dancer::Template::Mason::AUTHORITY = 'cpan:yanick';
+  $Dancer::Template::Mason::AUTHORITY = 'cpan:YANICK';
 }
-BEGIN {
-  $Dancer::Template::Mason::VERSION = '0.003004';
+{
+  $Dancer::Template::Mason::VERSION = '0.004000';
 }
 # ABSTRACT: Mason wrapper for Dancer
 
 use strict;
 use warnings;
-use Dancer::Config 'setting';
-use FindBin;
 use HTML::Mason::Interp;
 
-use base 'Dancer::Template::Abstract';
+require Dancer;
 
-my $_engine;
-my $root_dir;
+use Moo;
 
-sub init { 
-    my $self = shift;
-    my %config = %{$self->config || {}};
+if ( Dancer->VERSION >= 2 ) {
+    with 'Dancer::Core::Role::Template';
+}
+else {
+    require FindBin;
+    require Dancer::Config;
 
-    $root_dir = $config{comp_root} ||= setting('views') || $FindBin::Bin . '/views';
+    Dancer::Config->import( 'setting' );
 
-    # The "extension" parameter is used by Dancer to override the
-    # default template extension, but it can't be passed to
-    # HTML::Mason::Interp, which checks for unknown parameters.
-    delete $config{'extension'};
-
-    $_engine = HTML::Mason::Interp->new( %config );
+    extends 'Dancer::Template::Abstract';
 }
 
-sub default_tmpl_ext { "mason" };
+has _engine => (
+    is => 'ro',
+    lazy => 1,
+    default => sub {
+        my %config = %{$_[0]->config || {}};
+
+        delete $config{$_} for qw/ environment location extension /;
+        HTML::Mason::Interp->new( %config );
+    },
+);
+
+has _root_dir => (
+    is => 'rw',
+    lazy => 1,
+    default => sub {
+        $_[0]->config->{comp_root} ||= 
+            ( $_[0]->api_version == 1 ? setting( 'views' ) :  $_[0]->views )
+                || $FindBin::Bin . '/views';
+    },
+);
+
+has api_version => (
+    is => 'ro',
+    lazy => 1,
+    default => sub { int Dancer->VERSION },
+);
+
+sub _build_name { 'Dancer::Template::Mason' }
+
+has default_tmpl_ext => (
+    is => 'ro',
+    lazy => 1,
+    default => sub {
+        $_[0]->config->{extension} || 'mason';
+    },
+);
 
 sub render {
     my ($self, $template, $tokens) = @_;
+
+    my $root_dir = $self->_root_dir;
     
     $template =~ s/^\Q$root_dir//;  # cut the leading path
-    
+
     my $content;
-    $_engine->out_method( \$content );
-    $_engine->exec($template, %$tokens);
+    $self->_engine->out_method( \$content );
+    $self->_engine->exec($template, %$tokens);
     return $content;
 }
 
 1;
 
+__END__
 
 =pod
 
@@ -56,7 +89,7 @@ Dancer::Template::Mason - Mason wrapper for Dancer
 
 =head1 VERSION
 
-version 0.003004
+version 0.004000
 
 =head1 SYNOPSIS
 
@@ -117,13 +150,9 @@ Yanick Champoux
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Yanick Champoux.
+This software is copyright (c) 2012 by Yanick Champoux.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

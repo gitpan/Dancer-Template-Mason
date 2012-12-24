@@ -4,21 +4,21 @@ Dancer::Template::Mason - Mason wrapper for Dancer
 
 # VERSION
 
-version 0.003004
+version 0.004000
 
 # SYNOPSIS
 
-  # in 'config.yml'
-  template: 'mason'
+    # in 'config.yml'
+    template: 'mason'
 
-  # in the app
- 
+     # in the app
+    
 
-  get '/foo', sub {
-    template 'foo' => {
-        title => 'bar'
+    get '/foo', sub {
+      template 'foo' => {
+          title => 'bar'
+      };
     };
-  };
 
 Then, on `views/foo.mason`:
 
@@ -62,11 +62,11 @@ For Mason v2, see [Mason](http://search.cpan.org/perldoc?Mason) and [Dancer::Tem
 
 # AUTHOR
 
-Yanick Champoux
+Yanick Champoux [![endorse](http://api.coderwall.com/yanick/endorsecount.png)](http://coderwall.com/yanick)
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Yanick Champoux.
+This software is copyright (c) 2012 by Yanick Champoux.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
