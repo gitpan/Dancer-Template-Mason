@@ -1,5 +1,6 @@
 AUTHOR_PLEDGE
 Build.PL
+CONTRIBUTORS
 Changes
 INSTALL
 LICENSE
@@ -9,6 +10,8 @@ META.yml
 README
 README.mkdn
 SIGNATURE
+inc/Devel/AssertOS.pm
+inc/Devel/CheckOS.pm
 lib/Dancer/Template/Mason.pm
 t/00-compile.t
 t/00-load.t
@@ -24,9 +27,6 @@ t/apps/Foo/public/css/error.css
 t/apps/Foo/public/css/style.css
 t/apps/Foo/public/dispatch.cgi
 t/apps/Foo/public/dispatch.fcgi
-t/apps/Foo/public/favicon.ico
-t/apps/Foo/public/images/perldancer-bg.jpg
-t/apps/Foo/public/images/perldancer.jpg
 t/apps/Foo/public/javascripts/jquery.js
 t/apps/Foo/views/index.m
 t/interp_config-d2.t

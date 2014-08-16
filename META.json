@@ -1,10 +1,10 @@
 {
    "abstract" : "Mason wrapper for Dancer",
    "author" : [
-      "Yanick Champoux"
+      "Yanick Champoux <yanick@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.140640",
    "license" : [
       "perl_5"
    ],
@@ -13,15 +13,20 @@
       "version" : "2"
    },
    "name" : "Dancer-Template-Mason",
+   "no_index" : {
+      "directory" : [
+         "inc"
+      ]
+   },
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Module::Build" : "0.3601"
+            "Module::Build" : "0.28"
          }
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.3601"
+            "Module::Build" : "0.28"
          }
       },
       "develop" : {
@@ -44,25 +49,27 @@
             "Dancer::FileUtils" : "0",
             "Dancer::Test" : "0",
             "ExtUtils::MakeMaker" : "0",
-            "File::Find" : "0",
-            "File::Temp" : "0",
+            "File::Spec" : "0",
+            "IO::Handle" : "0",
+            "IPC::Open3" : "0",
             "Plack::Handler::FCGI" : "0",
             "Plack::Runner" : "0",
-            "Test::More" : "0.88"
+            "Test::More" : "0.88",
+            "lib" : "0",
+            "perl" : "5.006"
          }
       }
    },
    "provides" : {
       "Dancer::Template::Mason" : {
          "file" : "lib/Dancer/Template/Mason.pm",
-         "version" : "0.004000"
+         "version" : "0.004001"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "mailto" : "bug-dancer-template-mason at rt.cpan.org",
-         "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Dancer-Template-Mason"
+         "web" : "https://github.com/yanick/Dancer-Template-Mason/issues"
       },
       "homepage" : "http://search.cpan.org/dist/Dancer-Template-Mason/",
       "repository" : {
@@ -71,10 +78,16 @@
          "web" : "https://github.com/yanick/Dancer-Template-Mason"
       }
    },
-   "version" : "0.004000",
+   "version" : "0.004001",
    "x_author_pledge" : {
       "version" : 1
    },
-   "x_authority" : "cpan:YANICK"
+   "x_authority" : "cpan:YANICK",
+   "x_contributors" : [
+      "Danijel Tasov <dt@korn.shell.la>",
+      "Steve Simms <steve@deefs.net>",
+      "boris shomodjvarac <shomodj@oginwm09.(none)>",
+      "franck cuny <franck@lumberjaph.net>"
+   ]
 }
 

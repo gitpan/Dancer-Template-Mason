@@ -2,30 +2,23 @@ package Dancer::Template::Mason;
 BEGIN {
   $Dancer::Template::Mason::AUTHORITY = 'cpan:YANICK';
 }
-{
-  $Dancer::Template::Mason::VERSION = '0.004000';
-}
 # ABSTRACT: Mason wrapper for Dancer
-
+$Dancer::Template::Mason::VERSION = '0.004001';
 use strict;
 use warnings;
+
 use HTML::Mason::Interp;
 
 require Dancer;
 
 use Moo;
 
-if ( Dancer->VERSION >= 2 ) {
-    with 'Dancer::Core::Role::Template';
-}
-else {
-    require FindBin;
-    require Dancer::Config;
+require FindBin;
+require Dancer::Config;
 
-    Dancer::Config->import( 'setting' );
+Dancer::Config->import( 'setting' );
 
-    extends 'Dancer::Template::Abstract';
-}
+extends 'Dancer::Template::Abstract';
 
 has _engine => (
     is => 'ro',
@@ -43,15 +36,8 @@ has _root_dir => (
     lazy => 1,
     default => sub {
         $_[0]->config->{comp_root} ||= 
-            ( $_[0]->api_version == 1 ? setting( 'views' ) :  $_[0]->views )
-                || $FindBin::Bin . '/views';
+            setting( 'views' ) || $FindBin::Bin . '/views';
     },
-);
-
-has api_version => (
-    is => 'ro',
-    lazy => 1,
-    default => sub { int Dancer->VERSION },
 );
 
 sub _build_name { 'Dancer::Template::Mason' }
@@ -83,13 +69,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Dancer::Template::Mason - Mason wrapper for Dancer
 
 =head1 VERSION
 
-version 0.004000
+version 0.004001
 
 =head1 SYNOPSIS
 
@@ -146,11 +134,11 @@ For Mason v2, see L<Mason> and L<Dancer::Template::Mason2>.
 
 =head1 AUTHOR
 
-Yanick Champoux
+Yanick Champoux <yanick@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Yanick Champoux.
+This software is copyright (c) 2014 by Yanick Champoux.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
